@@ -1,5 +1,4 @@
 
-````
 # 🦾 Hacking Tricks
 
 A living list of real-world hacking tricks, tips, and one-liners. Add your own methods, tools, and dirty hacks as you go.  
@@ -13,7 +12,8 @@ A living list of real-world hacking tricks, tips, and one-liners. Add your own m
 
 Find open proxies (8080, 3128, 1080, 8000, 8888) on the entire IPv4 internet, skipping all private/reserved IP ranges:
 
-```bash
+
+```
 sudo masscan 0.0.0.0/0 -p8080,3128,1080,8000,8888 --rate=10000 -oG found_proxies.gnmap \
   --exclude 10.0.0.0/8 \
   --exclude 127.0.0.0/8 \
