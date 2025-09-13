@@ -26,7 +26,30 @@ sudo masscan 0.0.0.0/0 -p8080,3128,1080,8000,8888 --rate=10000 -oG found_proxies
   --exclude 169.254.0.0/16 \
   --exclude 255.255.255.255
 ````
+### resuming scan afte cancel with control + C
+```
+1. add # before this
 
+nocapture = servername
+
+after
+#nocapture = servername
+then save
+
+sudo masscan --resume paused.conf \
+  --exclude 10.0.0.0/8 \
+  --exclude 127.0.0.0/8 \
+  --exclude 172.16.0.0/12 \
+  --exclude 192.168.0.0/16 \
+  --exclude 224.0.0.0/4 \
+  --exclude 240.0.0.0/4 \
+  --exclude 0.0.0.0/8 \
+  --exclude 100.64.0.0/10 \
+  --exclude 169.254.0.0/16 \
+  --exclude 255.255.255.255
+
+
+```
 **Explanation:**
 
 * **`masscan 0.0.0.0/0`**: Scan the whole IPv4 internet.
