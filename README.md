@@ -50,6 +50,26 @@ sudo masscan --resume paused.conf \
 
 
 ```
+
+***convert for hydra*** 
+
+```
+awk -F'Host: | \\(|Ports: |/open' '
+{
+  if ($2 && $4) {
+    ip=$2
+    split($4,ports,",")
+    for (i in ports) {
+      match(ports[i],/[0-9]+/)
+      if (RSTART) print ip ":" substr(ports[i],RSTART,RLENGTH)
+    }
+  }
+}' found_telnet.gnmap > hydra_targets.txt
+```
+
+
+
+
 **Explanation:**
 
 * **`masscan 0.0.0.0/0`**: Scan the whole IPv4 internet.
@@ -57,7 +77,7 @@ sudo masscan --resume paused.conf \
 * **`--rate=10000`**: 10k packets/sec (edit if you get network drops).
 * **`-oG found_proxies.gnmap`**: Output in greppable format.
 * **`--exclude ...`**: Skips private/reserved IP ranges, avoids legal/ISP drama, saves time.
-
+* **`--resume ...`**: resumes with what you exlude and the path to your resume config <3.
 
 
 ## 🧑‍💻 Contributing
