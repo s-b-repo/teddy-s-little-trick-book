@@ -36,6 +36,8 @@ after
 #nocapture = servername
 then save
 
+```
+```
 sudo masscan --resume paused.conf \
   --exclude 10.0.0.0/8 \
   --exclude 127.0.0.0/8 \
