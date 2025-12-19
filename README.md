@@ -81,7 +81,9 @@ sudo masscan 0.0.0.0/0 -p8080,80 --rate=100000 -oG found_backends.gnmap \
   --exclude 197.234.240.0/22 \
   --exclude 198.41.128.0/17 \
   --exclude 8.8.8.8/32 \
-  --exclude 8.8.4.4/32
+  --exclude 8.8.4.4/32 \
+  --exclude 1.1.1.1/32 \
+  --exclude 1.0.0.1/32
 ```
 
 ***convert for hydra*** 
