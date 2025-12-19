@@ -53,7 +53,7 @@ sudo masscan --resume paused.conf \
 
 ```
 # Filtered out cloudflare and other dns providers quicker and faster scans
-
+```
 sudo masscan 0.0.0.0/0 -p8080,80 --rate=100000 -oG found_backends.gnmap \
   --exclude 10.0.0.0/8 \
   --exclude 127.0.0.0/8 \
@@ -82,7 +82,7 @@ sudo masscan 0.0.0.0/0 -p8080,80 --rate=100000 -oG found_backends.gnmap \
   --exclude 198.41.128.0/17 \
   --exclude 8.8.8.8/32 \
   --exclude 8.8.4.4/32
-
+```
 
 ***convert for hydra*** 
 
